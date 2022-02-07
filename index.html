@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<meta charset="UTF-8">
+				<title>CI-Builder</title>
+</head>
+<body>
+				<center><h1>CI-Builder✓</h1></center>
+				<center>		<p>By <a href="https://github.com/prajwal.kedari">Prajwal Kedari</a></p>	</center>
+				<br>
+				<br>
+				<label>Name. </label><input placeholder="CD/CI" id="Name_id" type="text"><br><br>
+				<label>Run on Os				      
+				<input list="OS" name="Runon" id="Runon" placeholder="ubuntu-latest" /></label> 
+				<datalist id="OS"> 
+								<option value="ubuntu-latest" >
+								<option value="ubuntu-20.04">
+								<option value="ubuntu-18.04">  
+								<option value="macos-10.15"> 
+								<option value="macos-11"> 
+								<option value="macos-latest"> 
+								<option value="windows-2022"> 
+								<option value="windows-latest">
+								<option value="windows-2019"> 
+
+				 </datalist>
+				 <br>
+				 <center>
+				 				<br>
+				 				<br>
+				 <button id="Build_btn" onclick="build()">Build</button>
+				 <br>
+				 <br>
+				 
+<div id="hid">
+<textarea rows="4" cols="30" id="output" placeholder="This is the default text" ></textarea>
+<br>
+<br>
+<button id="cp">Copy</button>
+</div>
+				</center>
+</body>
+<script>
+		 hid=document.getElementById("hid")
+		 hid.style.display = "none";
+				var outcp={}
+				out = document.getElementById("output")
+				function build(){
+			 Name = document.getElementById("Name_id").value;
+			 hid.style.display = "block";
+    Runner = document.getElementById("Runon").value;
+    var prnt = "name: "+ Name +"\n"+"jobs: \n   build: \n    runs-on:"+Runner;
+    out.value = prnt;
+    outcp.txt = prnt
+				}
+				cp.onclick = function cp(){
+				var dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = outcp.txt ;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+				}
+			
+</script>
+</html>
